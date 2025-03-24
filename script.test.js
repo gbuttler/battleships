@@ -27,6 +27,20 @@ describe("ship", () => {
 
 describe("gameboard", () => {
   let gameboard = new Gameboard();
+  let ship;
+
+  // THIS NEEDS FIXING
+  beforeEach(() => {
+    ship = {
+      this.length = length;
+    this.hits = 0;
+    this.sunk = false;
+    };
+  });
+
+  test("test the ship's length is being received (2 in this case)", () => {
+    expect(ship.length).toBe(2);
+  });
 
   test("does the 10x10 gameboard appear", () => {
     expect(gameboard.createBoard()).toStrictEqual([
@@ -34,6 +48,126 @@ describe("gameboard", () => {
       "",
       "",
       "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ]);
+  });
+
+  test("check if the board is displayed properly", () => {
+    expect(gameboard.showBoard()).toStrictEqual(
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""],
+      ["", "", "", "", "", "", "", "", "", ""]
+    );
+  });
+
+  test("check that a 2 square length ship can be played", () => {
+    expect(gameboard.playShip(2)).toBe([
+      "",
+      "",
+      "x",
+      "x",
       "",
       "",
       "",
