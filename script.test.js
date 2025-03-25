@@ -27,16 +27,7 @@ describe("ship", () => {
 
 describe("gameboard", () => {
   let gameboard = new Gameboard();
-  let ship;
-
-  // THIS NEEDS FIXING
-  beforeEach(() => {
-    ship = {
-      this.length = length;
-    this.hits = 0;
-    this.sunk = false;
-    };
-  });
+  let ship = new Ship(2);
 
   test("test the ship's length is being received (2 in this case)", () => {
     expect(ship.length).toBe(2);
@@ -163,22 +154,22 @@ describe("gameboard", () => {
   });
 
   test("check that a 2 square length ship can be played", () => {
-    expect(gameboard.playShip(2)).toBe([
+    expect(gameboard.playShip(ship, 4, 2)).toStrictEqual([
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
       "",
       "",
       "x",
       "x",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
       "",
       "",
       "",

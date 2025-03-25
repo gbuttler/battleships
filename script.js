@@ -58,18 +58,21 @@ class Gameboard {
   }
 
   //allow a ship of a specific length to be placed on the board (and not allowed if it won't fit) - specific coordinates
-  playShip(location) {
-    if (this.board[location] !== "") {
+  playShip(ship, xAxis, yAxis) {
+    let shipLength = ship.length;
+    let locationIndex = xAxis - 1 + (yAxis - 1) * 10;
+
+    if (this.board[locationIndex] !== "") {
       return "Please choose another square, this one is already taken";
     }
     if (
-      this.board[location] === "" &&
-      (location % 10) - 10 + Ship.length < 10
+      this.board[locationIndex] === "" &&
+      (locationIndex % 10) - 10 + shipLength < 10
     ) {
-      for (let z = Ship.length; z > 0; z--) {
-        this.board[location] = "x";
+      for (let z = shipLength; z > 0; z--) {
+        this.board[locationIndex] = "x";
+        locationIndex++;
       }
-
       return this.board;
     } else {
       return "The ship cannot fit there";
@@ -77,6 +80,8 @@ class Gameboard {
   }
 
   //recieveAttack function (ship hit or not, ship sunk or not.) Mark space accordingly
+  receiveAttack() {}
+
   //check if all ships are sunk
 }
 
