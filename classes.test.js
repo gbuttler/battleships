@@ -1,4 +1,4 @@
-import { Ship, Gameboard, Player } from "./script";
+import { Ship, Gameboard, Player } from "./classes";
 
 //ship tests
 describe("ship", () => {
