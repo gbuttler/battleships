@@ -116,4 +116,12 @@ class Gameboard {
   }
 }
 
-export { Ship, Gameboard };
+class Player {
+  constructor(playerType, playerName) {
+    this.playerType = playerType;
+    this.gameboard = new Gameboard();
+    this.playerName = playerName;
+  }
+}
+
+export { Ship, Gameboard, Player };

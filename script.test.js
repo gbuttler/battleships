@@ -1,4 +1,4 @@
-import { Ship, Gameboard } from "./script";
+import { Ship, Gameboard, Player } from "./script";
 
 //ship tests
 describe("ship", () => {
@@ -480,5 +480,18 @@ describe("gameboard", () => {
 
   test("check that all ships are sunk", () => {
     expect(gameboard.allSunk()).toBe(false);
+  });
+});
+
+describe("player", () => {
+  let player = new Player("real", "Grace");
+  // player.playerName = "Grace";
+
+  test("new player created called Grace", () => {
+    expect(player.playerName).toBe("Grace");
+  });
+
+  test("expect that new player to be a real person", () => {
+    expect(player.playerType).toBe("real");
   });
 });
