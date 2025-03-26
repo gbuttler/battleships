@@ -20,6 +20,11 @@ class Ship {
 class Gameboard {
   constructor() {
     this.board = [];
+    this.fleet = [];
+  }
+
+  addToFleet(ship) {
+    this.fleet.push(ship);
   }
 
   //create gameboard 10x10 squares
@@ -80,9 +85,35 @@ class Gameboard {
   }
 
   //recieveAttack function (ship hit or not, ship sunk or not.) Mark space accordingly
-  receiveAttack() {}
+  receiveAttack(ship, xAxis, yAxis) {
+    let shipHits = ship.hits;
+    let shipSunk = ship.sunk;
+    let locationIndex = xAxis - 1 + (yAxis - 1) * 10;
+
+    //if space is empty return error message
+    if (this.board[locationIndex] === "") {
+      this.board[locationIndex] = "-";
+      return this.board;
+    }
+    //if space has a ship - add hit to the ship
+    if (this.board[locationIndex] === "x") {
+      this.board[locationIndex] = "o";
+      shipHits++;
+      ship.isSunk();
+      if (shipSunk === true) {
+        return this.board;
+      } else {
+        return this.board;
+      }
+    } else {
+      return "Invalid move";
+    }
+  }
 
   //check if all ships are sunk
+  allSunk() {
+    return this.fleet.every((ship) => ship.sunk === true);
+  }
 }
 
 export { Ship, Gameboard };
