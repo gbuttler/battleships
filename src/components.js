@@ -63,9 +63,9 @@ class Gameboard {
   }
 
   //allow a ship of a specific length to be placed on the board (and not allowed if it won't fit) - specific coordinates
-  playShip(ship, xAxis, yAxis) {
+  playShip(ship, index) {
     let shipLength = ship.length;
-    let locationIndex = xAxis - 1 + (yAxis - 1) * 10;
+    let locationIndex = index;
 
     if (this.board[locationIndex] !== "") {
       return "Please choose another square, this one is already taken";
@@ -75,10 +75,15 @@ class Gameboard {
       (locationIndex % 10) - 10 + shipLength < 10
     ) {
       for (let z = shipLength; z > 0; z--) {
+        let gameSquare = document.getElementById(
+          `play-square-${locationIndex}`
+        );
+        gameSquare.innerHTML = "x";
         this.board[locationIndex] = "x";
+
         locationIndex++;
       }
-      return this.board;
+      return console.log(this.board);
     } else {
       return "The ship cannot fit there";
     }
